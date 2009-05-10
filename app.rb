@@ -3,6 +3,7 @@ $:<< File.join( File.dirname(__FILE__), 'lib' )
 require 'rubygems'
 require 'sinatra'
 require 'datamapper'
+require 'bowling'
 
 
 
@@ -15,7 +16,7 @@ DataMapper.setup(
   "sqlite3://#{ File.expand_path(File.dirname(__FILE__)) }/db/#{ Sinatra::Application.environment }.sqlite3"
 )
 
-require 'bowling'
+load 'bowling/game_model.rb'
 
 Bowling::GameModel.auto_upgrade!
 
@@ -30,29 +31,52 @@ get '/' do
 end
 
 get '/games' do
-  "get: read ALL games"
+  @games = Bowling::GameModel.all( :order => [:id.desc] )
+  erb :games_index
 end
 
 get '/games/new' do
-  "get: form for a new game"
+  @game = Bowling::GameModel.new
+  erb :games_new
 end
 
 get '/games/:id' do
-  "get: read game '#{params[:id]}'"
+  @game = Bowling::GameModel.get(params[:id])
+  erb :games_show
 end
 
 get '/games/:id/edit' do
-  "get: form for editing game '#{params[:id]}'"
+  @game = Bowling::GameModel.get(params[:id])
+  erb :games_edit
 end
 
 post '/games' do
-  "post: create a new game"
+  @game = Bowling::GameModel.new(params)
+  
+  if @game.save
+    redirect '/games'
+  else
+    erb :games_new
+  end
 end
 
 put '/games' do
-  "put: update a game"
+  @game = Bowling::GameModel.get(params[:id])
+  params.delete '_method'
+  
+  if @game.update_attributes(params)
+    redirect '/games'
+  else
+    erb :games_edit
+  end
 end
 
 delete '/games' do
-  "delete: delete a game"
+  @game = Bowling::GameModel.get(params[:id])
+  
+  if @game.destroy
+    redirect '/games'
+  else
+    erb :games_index
+  end
 end
