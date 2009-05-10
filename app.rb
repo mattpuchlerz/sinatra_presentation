@@ -1,5 +1,29 @@
+$:<< File.join( File.dirname(__FILE__), 'lib' )
+
 require 'rubygems'
 require 'sinatra'
+require 'datamapper'
+
+
+
+# 
+# Set up database and models
+# 
+
+DataMapper.setup(
+  :default, 
+  "sqlite3://#{ File.expand_path(File.dirname(__FILE__)) }/db/#{ Sinatra::Application.environment }.sqlite3"
+)
+
+require 'bowling'
+
+Bowling::GameModel.auto_upgrade!
+
+
+
+# 
+# Routes
+# 
 
 get '/' do
   redirect '/bowling_games'
