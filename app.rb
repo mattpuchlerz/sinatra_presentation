@@ -1,11 +1,11 @@
-$LOAD_PATH << File.join( File.dirname(__FILE__), 'lib' )
+$LOAD_PATH << File.join( Dir.pwd, 'lib' )
 
 require 'rubygems'
 require 'datamapper'
 require 'sinatra'
 require 'sinatra/rest'
-require 'overrides'
-require 'bowling'
+
+Dir.glob("lib/**/*.rb").sort.each { |file| require file }
 
 def load_or_require(file)
   (Sinatra::Application.environment == :development) ? load(file) : require(file)
@@ -22,7 +22,7 @@ DataMapper.setup(
   "sqlite3://#{ File.expand_path(File.dirname(__FILE__)) }/db/#{ Sinatra::Application.environment }.sqlite3"
 )
 
-Dir.glob("lib/models/**/*.rb").sort.each { |file| load_or_require file }
+Dir.glob("models/**/*.rb").sort.each { |file| load_or_require file }
 
 DataMapper.auto_upgrade!
 
