@@ -14,10 +14,14 @@ require 'bowling'
 
 DataMapper.setup(
   :default, 
-  "sqlite3://#{ File.expand_path(File.dirname(__FILE__)) }/db/#{ Sinatra::Application.environment }_rest.sqlite3"
+  "sqlite3://#{ File.expand_path(File.dirname(__FILE__)) }/db/#{ Sinatra::Application.environment }.sqlite3"
 )
 
-load 'game.rb'
+def load_or_require(file)
+  (Sinatra::Application.environment == :development) ? load(file) : require(file)
+end
+
+Dir.glob("lib/models/**/*.rb").sort.each { |file| load_or_require file }
 
 DataMapper.auto_upgrade!
 
