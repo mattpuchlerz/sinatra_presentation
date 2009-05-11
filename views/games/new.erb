@@ -1,0 +1,18 @@
+<h1>New Game</h1>
+
+<ul>
+  <li><a href="/games">Back to Games</a></li>
+</ul>
+
+<form action="/games" method="post">
+  
+  <dl>
+    <dt>Joined Rolls</dt>
+    <dd><input type="text" name="joined_rolls" value="<%= @game.joined_rolls %>" size="35" /></dd>
+  </dl>
+
+  <p>
+    <input type="submit" value="Save" />
+  </p>
+  
+</form>
