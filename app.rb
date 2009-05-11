@@ -6,11 +6,7 @@ require 'sinatra'
 require 'sinatra/rest'
 require 'datamapper'
 
-Dir.glob("lib/**/*.rb").sort.each { |file| require file }
-
-def load_or_require(file)
-  (Sinatra::Application.environment == :development) ? load(file) : require(file)
-end
+Dir.glob("lib/*.rb").each { |file| require file }
 
 
 
@@ -23,7 +19,7 @@ DataMapper.setup(
   "sqlite3://#{ ROOT }/db/#{ Sinatra::Application.environment }.sqlite3"
 )
 
-Dir.glob("models/**/*.rb").sort.each { |file| load_or_require file }
+Dir.glob("models/*.rb").each { |file| load file }
 
 DataMapper.auto_upgrade!
 
