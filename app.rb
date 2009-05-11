@@ -1,10 +1,15 @@
-$:<< File.join( File.dirname(__FILE__), 'lib' )
+$LOAD_PATH << File.join( File.dirname(__FILE__), 'lib' )
 
 require 'rubygems'
 require 'datamapper'
 require 'sinatra'
 require 'sinatra/rest'
+require 'overrides'
 require 'bowling'
+
+def load_or_require(file)
+  (Sinatra::Application.environment == :development) ? load(file) : require(file)
+end
 
 
 
@@ -17,10 +22,6 @@ DataMapper.setup(
   "sqlite3://#{ File.expand_path(File.dirname(__FILE__)) }/db/#{ Sinatra::Application.environment }.sqlite3"
 )
 
-def load_or_require(file)
-  (Sinatra::Application.environment == :development) ? load(file) : require(file)
-end
-
 Dir.glob("lib/models/**/*.rb").sort.each { |file| load_or_require file }
 
 DataMapper.auto_upgrade!
@@ -31,8 +32,9 @@ DataMapper.auto_upgrade!
 # Routes
 # 
 
+rest Game, :renderer => :erb
+
 get '/' do
-  redirect '/games'
+  redirect url_for_games_index
 end
 
-rest Game, :renderer => :erb
