@@ -28,10 +28,10 @@
       <td><a href="/games/<%= game.id %>/edit">Edit</a></td>
       <td>
         <form action="/games/<%= game.id %>" method="post">
-          <p>
+          <div>
             <input type="hidden" name="_method" value="delete" />
             <input type="submit" value="Delete" />
-          </p>
+          </div>
         </form>
       </td>
     </tr>
