@@ -14,10 +14,7 @@ Dir.glob("lib/*.rb").each { |file| require file }
 # Set up database and models
 # 
 
-DataMapper.setup(
-  :default, 
-  "sqlite3://#{ ROOT }/db/#{ Sinatra::Application.environment }.sqlite3"
-)
+DataMapper.setup :default, "sqlite3://#{ ROOT }/db/#{ Sinatra::Application.environment }.sqlite3"
 
 Dir.glob("models/*.rb").each { |file| load file }
 
