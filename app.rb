@@ -1,12 +1,12 @@
 ROOT = File.expand_path File.dirname(__FILE__) unless defined?(ROOT)
-$LOAD_PATH << File.join(ROOT, 'lib')
 
 require 'rubygems'
 require 'sinatra'
 require 'sinatra/rest'
 require 'datamapper'
 
-Dir.glob("lib/*.rb").each { |file| require file }
+Dir.glob("vendor/*/lib/").each { |path| $LOAD_PATH << File.join(ROOT, path) }
+Dir.glob("vendor/*/lib/*.rb").each { |file| require file }
 
 
 
