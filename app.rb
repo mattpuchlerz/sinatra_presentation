@@ -13,11 +13,8 @@ Dir.glob("vendor/*/lib/*.rb").each { |file| require file }
 # Configuration
 # 
 
-configure do
+set :root, ROOT
 
-  set :root, File.dirname(__FILE__)
-  
-end
 
 
 # 
