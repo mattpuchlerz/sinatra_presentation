@@ -25,7 +25,7 @@ DataMapper.setup :default, "sqlite3://#{ ROOT }/db/#{ Sinatra::Application.envir
 
 Dir.glob("models/*.rb").each { |file| load file }
 
-DataMapper.auto_upgrade!
+(Sinatra::Application.environment == :test) ? DataMapper.auto_migrate! : DataMapper.auto_upgrade!
 
 
 
