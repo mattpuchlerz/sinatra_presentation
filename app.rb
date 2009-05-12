@@ -2,12 +2,22 @@ ROOT = File.expand_path File.dirname(__FILE__) unless defined?(ROOT)
 
 require 'rubygems'
 require 'sinatra'
-require 'sinatra/rest'
 require 'datamapper'
 
 Dir.glob("vendor/*/lib/").each { |path| $LOAD_PATH << File.join(ROOT, path) }
 Dir.glob("vendor/*/lib/*.rb").each { |file| require file }
 
+
+
+# 
+# Configuration
+# 
+
+configure do
+
+  set :root, File.dirname(__FILE__)
+  
+end
 
 
 # 
@@ -26,9 +36,11 @@ DataMapper.auto_upgrade!
 # Routes
 # 
 
-rest Game, :renderer => :erb
-
 get '/' do
-  redirect url_for_games_index
+  redirect '/games'
 end
 
+get '/games' do
+  @games = Game.all :order => [:id.desc]
+  erb :'games/index'
+end
