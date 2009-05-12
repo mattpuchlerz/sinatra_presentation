@@ -3,7 +3,7 @@ class Game
   include DataMapper::Resource
 
   property :id,           Serial
-  property :joined_rolls, String
+  property :joined_rolls, String, :length => 100
   
   def rolls
     joined_rolls
