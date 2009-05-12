@@ -2,7 +2,6 @@ require 'rubygems'
 require 'spec/expectations'
 require 'webrat'
 require File.join( File.dirname(__FILE__), '.', 'paths' )
-# require 'factory_girl'
 require 'sinatra'
 
 
