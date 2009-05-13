@@ -9,6 +9,8 @@ module NavigationHelpers
       '/games'
     when /the new game page/
       '/games/new'
+    when /the games show page/
+      "/games/#{ Game.first( :order => [:id.desc] ).id }"
     else
       raise "Can't find mapping from \"#{page_name}\" to a path.\n" +
         "Now, go and add a mapping in features/support/paths.rb"

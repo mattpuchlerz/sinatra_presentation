@@ -7,8 +7,8 @@
 <form action="/games" method="post">
   
   <dl>
-    <dt>Joined Rolls</dt>
-    <dd><input type="text" name="hits" value="<%= @game.hits %>" size="35" /></dd>
+    <dt><label for="hits">Hits</label></dt>
+    <dd><input id="hits" type="text" name="hits" value="<%= @game.hits %>" size="35" /></dd>
   </dl>
 
   <p>

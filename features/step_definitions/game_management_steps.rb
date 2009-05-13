@@ -13,6 +13,6 @@ end
 
 Then /^I should see the following:$/ do |table|
   table.hashes.each do |attributes|
-    response.should contain( hits_string_to_array(attributes['hits']).join(', ') )
+    response.should contain( hits_string_to_array(attributes['hits']).join(',') )
   end
 end
