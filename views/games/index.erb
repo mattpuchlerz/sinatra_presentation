@@ -9,7 +9,7 @@
   <thead>
     <tr>
       <th>ID</th>
-      <th>Rolls</th>
+      <th>Hits</th>
       <th>Score</th>
       <th></th>
       <th></th>
@@ -22,8 +22,8 @@
     <% @games.each do |game| %>
     <tr>
       <td><%= game.id %></td>
-      <td><%= game.rolls %></td>
-      <td><%= game.score %></td>
+      <td><%= game.hits.join(', ') %></td>
+      <td><%# game.score %></td>
       <td><a href="/games/<%= game.id %>">Show</a></td>
       <td><a href="/games/<%= game.id %>/edit">Edit</a></td>
       <td>

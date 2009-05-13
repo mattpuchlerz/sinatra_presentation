@@ -12,17 +12,22 @@ Feature: Managing Games
       | 10,  10,  10,  10,  10,  10,  10,  10,  10,  10,10,10 |
     And I am on the games index page
     Then I should see "Games"
-    And I should see "New Game"
     And I should see the following:
       | hits                                                  |
       | 5,5, 1,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0      |
       | 10,  1,1, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0      |
       | 5,5, 5,5, 5,5, 5,5, 5,5, 5,5, 5,5, 5,5, 5,5, 5,5,5    |
       | 10,  10,  10,  10,  10,  10,  10,  10,  10,  10,10,10 |
+    
+  Scenario: Accessing the new game page
+    Given I am on the games index page
+    When I follow "New Game"
+    Then I should be on the new game page
+    And I should see "New Game"
 
   # Scenario: Adding a new game
   #   Given I am on the new game page
-  #   When I fill in "Joined Rolls" with "2,3,2,3,2,3,2,3,2,3,2,3,2,3,2,3,2,3,2,3"
+  #   When I fill in "Hits" with "2,3,2,3,2,3,2,3,2,3,2,3,2,3,2,3,2,3,2,3"
   #   And I press "Save"
   #   Then I should see "Games"
   #   And I should see "New Game"

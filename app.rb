@@ -41,3 +41,8 @@ get '/games' do
   @games = Game.all :order => [:id.desc]
   erb :'games/index'
 end
+
+get '/games/new' do
+  @game = Game.new
+  erb :'games/new'
+end
