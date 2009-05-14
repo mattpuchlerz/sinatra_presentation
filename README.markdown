@@ -10,6 +10,30 @@ Here you will find all the code and slides that were presented. Just a few thing
 Working with the Code
 =====================
 
+Cloning the Repo
+----------------
+
+    $ cd /where/you/keep/your/code/
+    $ git clone git://github.com/mattpuchlerz/sinatra_presentation.git
+    $ cd sinatra_presentation/
+    $ git branch --track solution origin/solution
+    $ git branch --track rest origin/rest
+
+Running the Finished App
+------------------------
+
+As this is a *classic* Sinatra application, starting it up in development mode couldn't be easier:
+
+    $ cd /path/to/sinatra_presentation/
+    $ git checkout solution
+    $ ruby app.rb
+
+Assuming everything works the way it's supposed to, you should see something like this:
+
+    == Sinatra/0.9.1.1 has taken the stage on 4567 for development with backup from Mongrel
+
+Just open your browser and visit [http://localhost:4567](http://localhost:4567).
+
 DIY: Developing It Yourself
 ---------------------------
 
@@ -23,20 +47,6 @@ There will be a whole mess of failing tests--that's good! The first failure will
     $ spec spec/
 
 You get the same error--awesome! Now go define a `Game` model class and run the tests again. That time you should receive a different error. Proceed on that way until all the features and specs pass. Good luck!
-
-Running the Finished App
-------------------------
-
-As this is a *classic* Sinatra application, starting it up in development mode couldn't be easier:
-
-    $ cd /path/to/sinatra_presentation/
-    $ ruby app.rb
-
-Assuming everything works the way it's supposed to, you should see something like this:
-
-    == Sinatra/0.9.1.1 has taken the stage on 4567 for development with backup from Mongrel
-
-Just open your browser and visit [http://localhost:4567](http://localhost:4567).
 
 
 
