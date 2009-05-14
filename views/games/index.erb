@@ -1,0 +1,42 @@
+<h1>Games</h1>
+
+<ul>
+  <li><a href="/games/new">New Game</a></li>
+</ul>
+
+<table border="1">
+  
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Hits</th>
+      <th>Score</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    
+    <% @games.each do |game| %>
+    <tr>
+      <td><%= game.id %></td>
+      <td><%= game.hits.join(',') %></td>
+      <td><%= game.score %></td>
+      <td><a href="/games/<%= game.id %>">Show</a></td>
+      <td><a href="/games/<%= game.id %>/edit">Edit</a></td>
+      <td>
+        <form action="/games/<%= game.id %>" method="post">
+          <div>
+            <input type="hidden" name="_method" value="delete" />
+            <input type="submit" value="Delete" />
+          </div>
+        </form>
+      </td>
+    </tr>
+    <% end %>
+
+  </tbody>
+  
+</table>
