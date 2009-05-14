@@ -28,14 +28,29 @@ Feature: Managing Games
     When I follow "New Game"
     Then I should be on the new game page
     And I should see "New Game"
+    And I should see 1 "Back to Games" link
 
   Scenario: Adding a new game
     Given I am on the new game page
-    When I fill in "Hits" with "2,3,2,3,2,3,2,3,2,3,2,3,2,3,2,3,2,3,2,3"
+    When I fill in "Hits" with "5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5"
     And I press "Save"
-    Then I should be on the games show page
+    Then I should be on the game show page
+    And I should see "5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5"
+    And I should see "150"
+  
+  Scenario: Accessing the game show page
+    Given the following games exist:
+      | hits                                             |
+      | 5,5, 1,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0 |
+    And I am on the games index page
+    When I follow "Show"
+    Then I should be on the game show page
     And I should see "Game"
-    And I should see "2,3,2,3,2,3,2,3,2,3,2,3,2,3,2,3,2,3,2,3"
+    And I should see 1 "Back to Games" link
+    And I should see 1 "Edit Game" link
+    And I should see "5,5,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"
+    And I should see "12"
+  
   
   
   
