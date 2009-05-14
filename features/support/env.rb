@@ -19,6 +19,15 @@ require File.join( File.dirname(__FILE__), '..', '..', 'app' )
 # Webrat configuration
 # 
 
+module Webrat
+  class Session
+    # I don't think 400+ codes are successful
+    def success_code?
+      (200..399).include?(response_code)
+    end
+  end
+end
+
 Webrat.configure do |config|
   config.mode = :sinatra
 end
