@@ -111,3 +111,29 @@ end
 Then /^I should be on (.+)$/ do |page_name|
   URI.parse(current_url).path.should == path_to(page_name)
 end
+
+###
+
+Then /^I (should|should not) see the following:$/ do |boolean, table|
+  table.hashes.each do |attributes|
+    attributes.values.each do |value|
+      Then %Q{I #{boolean} see "#{value}"}
+    end
+  end
+end
+
+Then /^I should see the following fields and values:$/ do |table|
+  table.hashes.each do |attributes|
+    attributes.each do |field, value|
+      Then %Q{the "#{field}" field should contain "#{value}"}
+    end
+  end
+end
+
+Then /^I should see (\d+) "([^\"]*)" links?$/ do |number, content|
+  response.should have_tag( 'a', { :content => content, :count => number.to_i } )
+end
+
+Then /^I should see (\d+) "([^\"]*)" buttons?$/ do |number, content|
+  response.should have_tag( 'input', { :type => 'submit', :value => content, :count => number.to_i } )
+end

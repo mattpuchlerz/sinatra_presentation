@@ -11,7 +11,7 @@ Given /^the following games exist:$/ do |table|
   end
 end
 
-Then /^I should see the following:$/ do |table|
+Then /^I should see the following games:$/ do |table|
   table.hashes.each do |attributes|
     Then %Q{I should see "#{ hits_string_to_array(attributes['hits']).join(',') }"}
     Then %Q{I should see "#{ attributes['score'] }"}

@@ -12,12 +12,16 @@ Feature: Managing Games
       | 10,  10,  10,  10,  10,  10,  10,  10,  10,  10,10,10 |
     And I am on the games index page
     Then I should see "Games"
-    And I should see the following:
+    And I should see 1 "New Game" link
+    And I should see the following games:
       | hits                                                  | score |
       | 5,5, 1,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0      | 12    |
       | 10,  1,1, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0      | 14    |
       | 5,5, 5,5, 5,5, 5,5, 5,5, 5,5, 5,5, 5,5, 5,5, 5,5,5    | 150   |
       | 10,  10,  10,  10,  10,  10,  10,  10,  10,  10,10,10 | 300   |
+    And I should see 4 "Show" links
+    And I should see 4 "Edit" links
+    And I should see 4 "Delete" buttons
     
   Scenario: Accessing the new game page
     Given I am on the games index page
