@@ -2,14 +2,14 @@
 
 <ul>
   <li><a href="/games">Back to Games</a></li>
-  <li><a href="/games/<%= @game.id %>">Show this Game</a></li>
+  <li><a href="/games/<%= @game.id %>">Show Game</a></li>
 </ul>
 
 <form action="/games/<%= @game.id %>" method="post">
   
   <dl>
-    <dt>Joined Rolls</dt>
-    <dd><input type="text" name="joined_rolls" value="<%= @game.joined_rolls %>" size="35" /></dd>
+    <dt><label for="hits">Hits</label></dt>
+    <dd><input id="hits" type="text" name="hits" value="<%= @game.hits.join(',') %>" size="35" /></dd>
   </dl>
 
   <p>

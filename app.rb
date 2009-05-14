@@ -61,3 +61,8 @@ get '/games/:id' do
   @game = Game.get params[:id]
   erb :'games/show'
 end
+
+get '/games/:id/edit' do
+  @game = Game.get params[:id]
+  erb :'games/edit'
+end
