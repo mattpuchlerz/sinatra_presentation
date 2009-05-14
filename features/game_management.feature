@@ -93,9 +93,3 @@ Feature: Managing Games
   And I should see 3 "Show" links
   And I should see 3 "Edit" links
   And I should see 3 "Delete" buttons
-  
-  
-  
-  
-  
-  
