@@ -46,5 +46,5 @@ World do
 end
 
 Before do
-  DataMapper.auto_migrate!
+  DataMapper.auto_migrate! if defined?(DataMapper)
 end
