@@ -44,3 +44,7 @@ World do
   session.extend(Webrat::HaveTagMatcher)
   session
 end
+
+Before do
+  DataMapper.auto_migrate!
+end

@@ -75,6 +75,26 @@ Feature: Managing Games
   And I should see "5,5,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1"
   And I should see "13"
   
+  Scenario: Deleting a game
+  Given the following games exist:
+    | hits                                                  |
+    | 5,5, 1,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0      |
+    | 10,  1,1, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0      |
+    | 5,5, 5,5, 5,5, 5,5, 5,5, 5,5, 5,5, 5,5, 5,5, 5,5,5    |
+    | 10,  10,  10,  10,  10,  10,  10,  10,  10,  10,10,10 |
+  And I am on the games index page
+  When I press "Delete"
+  Then I should be on the games index page
+  And I should see the following games:
+    | hits                                                  | score |
+    | 10,  1,1, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0      | 14    |
+    | 5,5, 5,5, 5,5, 5,5, 5,5, 5,5, 5,5, 5,5, 5,5, 5,5,5    | 150   |
+    | 10,  10,  10,  10,  10,  10,  10,  10,  10,  10,10,10 | 300   |
+  And I should see 3 "Show" links
+  And I should see 3 "Edit" links
+  And I should see 3 "Delete" buttons
+  
+  
   
   
   
