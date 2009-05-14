@@ -64,19 +64,16 @@ Feature: Managing Games
     And the "Hits" field should contain "5,5,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"
     And I should see 1 "Save" button
   
-  # Scenario: Editing a game
-  # Given the following games exist:
-  #   | hits                                             |
-  #   | 5,5, 1,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0 |
-  # And I am on the games index page
-  # When I follow "Edit"
-  # Then I should be on the edit game page
-  # And I should see "Edit Game"
-  # And I should see 1 "Back to Games" link
-  # And I should see 1 "Show Game" link
-  # And the "Hits" field should contain "5,5,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"
-  # And I should see 1 "Save" button
-  
+  Scenario: Editing a game
+  Given the following games exist:
+    | hits                                             |
+    | 5,5, 1,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0 |
+  And I am on the edit game page
+  When I fill in "Hits" with "5,5,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1"
+  And I press "Save"
+  Then I should be on the show game page
+  And I should see "5,5,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1"
+  And I should see "13"
   
   
   

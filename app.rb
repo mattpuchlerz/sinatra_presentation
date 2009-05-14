@@ -66,3 +66,14 @@ get '/games/:id/edit' do
   @game = Game.get params[:id]
   erb :'games/edit'
 end
+
+put '/games/:id' do
+  @game = Game.get params[:id]
+  params.delete('_method')
+  
+  if @game.update_attributes(params) 
+    redirect "/games/#{ @game.id }"
+  else
+    erb :'games/edit'
+  end
+end
