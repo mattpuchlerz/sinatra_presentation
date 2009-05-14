@@ -13,7 +13,7 @@ Working with the Code
 DIY: Developing It Yourself
 ---------------------------
 
-Want to try and recreate the app yourself? Start off with the code from the master branch. In an effort to remain aligned with core BDD principles, we first run the Cucumber features:
+Want to try and recreate the app yourself? **Start off with the code from the master branch.** When using Cucumber and RSpec for behavior-driven-development, you'd typically begin by writing the Cucumber features. In this exercise, however, that step has been completed for you in advance. Therefore, go ahead and run the features:
 
     $ cd /path/to/sinatra_presentation/
     $ cucumber features/
