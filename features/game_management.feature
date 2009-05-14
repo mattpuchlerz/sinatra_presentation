@@ -13,11 +13,11 @@ Feature: Managing Games
     And I am on the games index page
     Then I should see "Games"
     And I should see the following:
-      | hits                                                  |
-      | 5,5, 1,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0      |
-      | 10,  1,1, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0      |
-      | 5,5, 5,5, 5,5, 5,5, 5,5, 5,5, 5,5, 5,5, 5,5, 5,5,5    |
-      | 10,  10,  10,  10,  10,  10,  10,  10,  10,  10,10,10 |
+      | hits                                                  | score |
+      | 5,5, 1,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0      | 12    |
+      | 10,  1,1, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0      | 14    |
+      | 5,5, 5,5, 5,5, 5,5, 5,5, 5,5, 5,5, 5,5, 5,5, 5,5,5    | 150   |
+      | 10,  10,  10,  10,  10,  10,  10,  10,  10,  10,10,10 | 300   |
     
   Scenario: Accessing the new game page
     Given I am on the games index page
