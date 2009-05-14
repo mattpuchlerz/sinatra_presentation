@@ -13,7 +13,7 @@ end
 
 Then /^I should see the following:$/ do |table|
   table.hashes.each do |attributes|
-    response.should contain( hits_string_to_array(attributes['hits']).join(',') )
-    response.should contain( attributes['score'] )
+    Then %Q{I should see "#{ hits_string_to_array(attributes['hits']).join(',') }"}
+    Then %Q{I should see "#{ attributes['score'] }"}
   end
 end
