@@ -25,7 +25,7 @@ DataMapper.setup :default, "sqlite3://#{ ROOT }/db/#{ Sinatra::Application.envir
 
 Dir.glob("models/*.rb").each { |file| load file }
 
-(Sinatra::Application.environment == :test) ? DataMapper.auto_migrate! : DataMapper.auto_upgrade!
+DataMapper.auto_upgrade!
 
 
 
@@ -38,7 +38,7 @@ get '/' do
 end
 
 get '/games' do
-  @games = Game.all :order => [:id.desc]
+  @games = Game.all
   erb :'games/index'
 end
 
@@ -76,4 +76,11 @@ put '/games/:id' do
   else
     erb :'games/edit'
   end
+end
+
+delete '/games/:id' do
+  @game = Game.get params[:id]
+  @game.destroy
+  
+  redirect "/games"
 end
