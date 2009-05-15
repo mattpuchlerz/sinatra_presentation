@@ -12,7 +12,12 @@ describe Game do
     @game.should respond_to(:hits)
   end
   
-  it "should have 0 hits" do
+  it "should have a #score method" do
+    @game = Game.new
+    @game.should respond_to(:score)
+  end
+  
+  it "should have 0 hits if none have been specified" do
     @game = Game.new
     @game.should have(0).hits
   end
