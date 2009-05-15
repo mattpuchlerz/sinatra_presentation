@@ -61,21 +61,21 @@ DataMapper.auto_upgrade!
 # Routes
 # 
 
-get '/' do
+get     '/' do
   redirect '/games'
 end
 
-get '/games' do
+get     '/games' do
   @games = Game.all
   erb :index
 end
 
-get '/games/new' do
+get     '/games/new' do
   @game = Game.new
   erb :new
 end
 
-post '/games' do
+post    '/games' do
   @game = Game.new params
   
   if @game.save 
@@ -85,17 +85,17 @@ post '/games' do
   end
 end
 
-get '/games/:id' do
+get     '/games/:id' do
   @game = Game.get params[:id]
   erb :show
 end
 
-get '/games/:id/edit' do
+get     '/games/:id/edit' do
   @game = Game.get params[:id]
   erb :edit
 end
 
-put '/games/:id' do
+put     '/games/:id' do
   @game = Game.get params[:id]
   params.delete('_method')
   
@@ -106,7 +106,7 @@ put '/games/:id' do
   end
 end
 
-delete '/games/:id' do
+delete  '/games/:id' do
   @game = Game.get params[:id]
   @game.destroy
   
