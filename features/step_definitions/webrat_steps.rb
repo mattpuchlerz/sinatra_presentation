@@ -122,6 +122,10 @@ Then /^I (should|should not) see the following:$/ do |boolean, table|
   end
 end
 
+Then /^I should see the "([^\"]*)" tag$/ do |tag|
+  response.should have_tag(tag)
+end
+
 Then /^I should see the following fields and values:$/ do |table|
   table.hashes.each do |attributes|
     attributes.each do |field, value|
