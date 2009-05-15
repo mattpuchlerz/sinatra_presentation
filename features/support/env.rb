@@ -1,7 +1,7 @@
 require 'rubygems'
 require 'spec/expectations'
 require 'webrat'
-require File.join( File.dirname(__FILE__), '.', 'paths' )
+require File.join( File.dirname(__FILE__), *%w[ . paths ] )
 require 'sinatra'
 
 
@@ -12,7 +12,7 @@ require 'sinatra'
 
 set :environment, :test
 
-require File.join( File.dirname(__FILE__), '..', '..', 'app' )
+require File.join( File.dirname(__FILE__), *%w[ .. .. app ] )
 
 
 
