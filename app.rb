@@ -1,3 +1,4 @@
+# Note the application's root for convenience
 ROOT = File.expand_path File.dirname(__FILE__) unless defined?(ROOT)
 
 require 'rubygems'
