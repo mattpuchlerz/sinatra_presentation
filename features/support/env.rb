@@ -15,6 +15,15 @@ require 'spec/expectations'
 require 'webrat'
 require File.join( File.dirname(__FILE__), *%w[ . paths ] )
 
+module Webrat
+  class Session
+    # Overriding to make 400+ response codes unsuccessful
+    def success_code?
+      (200..399).include?(response_code)
+    end
+  end
+end
+
 Webrat.configure do |config|
   config.mode = :sinatra
 end
