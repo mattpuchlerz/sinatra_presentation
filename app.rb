@@ -4,16 +4,14 @@ require 'rubygems'
 require 'sinatra'
 require 'datamapper'
 
-Dir.glob("vendor/*/lib/").each { |path| $LOAD_PATH << File.join(ROOT, path) }
-Dir.glob("vendor/*/lib/*.rb").each { |file| require file }
+$LOAD_PATH << File.join( ROOT, *%w[ vendor bowling lib ] )
+require 'bowling'
 
 
 
 # 
 # Configuration
 # 
-
-set :root, ROOT
 
 use_in_file_templates!
 
