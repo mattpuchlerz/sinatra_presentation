@@ -1,32 +1,19 @@
-require 'rubygems'
+ENV['RACK_ENV'] = 'test'
+
+# Sinatra app
+require File.join( File.dirname(__FILE__), *%w[ .. .. app ] )
+
+# RSpec matchers
 require 'spec/expectations'
-require 'webrat'
-require File.join( File.dirname(__FILE__), '.', 'paths' )
-require 'sinatra'
 
-
-
-# 
-# Sinatra configuration
-# 
-
-set :environment, :test
-
-require File.join( File.dirname(__FILE__), '..', '..', 'app' )
 
 
 # 
 # Webrat configuration
 # 
 
-module Webrat
-  class Session
-    # I don't think 400+ codes are successful
-    def success_code?
-      (200..399).include?(response_code)
-    end
-  end
-end
+require 'webrat'
+require File.join( File.dirname(__FILE__), *%w[ . paths ] )
 
 Webrat.configure do |config|
   config.mode = :sinatra
@@ -46,5 +33,5 @@ World do
 end
 
 Before do
-  DataMapper.auto_migrate! if defined?(DataMapper)
+  DataMapper.auto_migrate!
 end

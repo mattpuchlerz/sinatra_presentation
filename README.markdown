@@ -5,7 +5,6 @@ Here you will find all the code and slides that were presented. Just a few thing
 
 - The code in the [**master branch**][master] is what we started the presentation with. It contains the general directory structure of the app, established all the Cucumber features and their associated step definitions, and RSpec specifications for the `Game` model. The main `app.rb` is present, but only contains Sinatra's version of "Hello World".
 - The code in the [**solution branch**][solution] is the finished app. The only differences between this branch and master is the completed `Game` model and `app.rb`.
-- The code in the [**rest branch**][rest] is also a finished app, although much of the manual routing has been replaced with a single call to `#rest`, a method provided by the magical [sinatra-rest][sinatra-rest] extension.
 
 Working with the Code
 =====================
@@ -17,7 +16,6 @@ Cloning the Repo
     $ git clone git://github.com/mattpuchlerz/sinatra_presentation.git
     $ cd sinatra_presentation/
     $ git branch --track solution origin/solution
-    $ git branch --track rest origin/rest
 
 Running the Finished App
 ------------------------
@@ -52,5 +50,4 @@ You get the same error--awesome! Now go define a `Game` model class and run the 
 
 [master]:       http://github.com/mattpuchlerz/sinatra_presentation/tree/master
 [solution]:     http://github.com/mattpuchlerz/sinatra_presentation/tree/solution
-[rest]:         http://github.com/mattpuchlerz/sinatra_presentation/tree/rest
 [sinatra-rest]: http://github.com/blindgaenger/sinatra-rest/
