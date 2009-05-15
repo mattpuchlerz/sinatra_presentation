@@ -3,8 +3,8 @@ Attend the ChicagoRuby.org Meetup on May 16, 2009?
 
 Here you will find all the code and slides that were presented. Just a few things to note:
 
-- The code in the [**master branch**][master] is what we started the presentation with. It contains the general directory structure of the app, established all the Cucumber features and their associated step definitions, and RSpec specifications for the `Game` model. The main `app.rb` is present, but only contains Sinatra's version of "Hello World".
-- The code in the [**solution branch**][solution] is the finished app. The only differences between this branch and master is the completed `Game` model and `app.rb`.
+- The code in the [**master branch**][master] is what we started the presentation with. It establishes the general directory structure of the app, all the Cucumber features and their associated step definitions, and RSpec specifications for a `Game` model. The main `app.rb` is present, but only contains a couple `require` statements and your standard "Hello World".
+- The code in the [**solution branch**][solution] is the finished `app.rb`. That's right, we've gone from "Hello World" to completed application in just one file!
 
 Working with the Code
 =====================
