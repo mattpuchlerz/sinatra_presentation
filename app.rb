@@ -49,7 +49,7 @@ end
 
 
 # 
-# Set up database and models
+# Set up database
 # 
 
 DataMapper.setup :default, "sqlite3://#{ ROOT }/db/#{ Sinatra::Application.environment }.sqlite3"
