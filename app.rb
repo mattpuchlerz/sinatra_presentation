@@ -4,16 +4,9 @@ require 'rubygems'
 require 'sinatra'
 require 'datamapper'
 
+# Dave Giunta's Bowling::Game library
 $LOAD_PATH << File.join( ROOT, *%w[ vendor bowling lib ] )
 require 'bowling'
-
-
-
-# 
-# Configuration
-# 
-
-use_in_file_templates!
 
 
 
@@ -60,6 +53,8 @@ DataMapper.auto_upgrade!
 # 
 # Routes
 # 
+
+use_in_file_templates!
 
 get     '/' do
   redirect '/games'
