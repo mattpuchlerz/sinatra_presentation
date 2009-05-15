@@ -9,6 +9,11 @@ Here you will find all the code and slides that were presented. Just a few thing
 Working with the Code
 =====================
 
+Installing the Dependencies
+---------------------------
+
+    $ sudo gem install rspec cucumber webrat sinatra datamapper do_sqlite3
+
 Cloning the Repo
 ----------------
 
