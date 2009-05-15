@@ -2,16 +2,17 @@ class Game
 
   include DataMapper::Resource
   
-  property :id,          Serial
-  property :joined_hits, String, :length => 100, :accessor => :private
+  property :id, Serial
+  property :hits, Object
   
   def hits
-    @joined_hits.to_s.split(',').map { |hit| hit.to_i }
+    @hits.to_a
   end
   
   def hits=(hits)    
     hits = hits.split(',') if hits.is_a? String
-    attribute_set :joined_hits, hits.join(',').to_s
+    hits.map! { |hit| hit.to_i }
+    attribute_set :hits, hits
   end
   
   def score
