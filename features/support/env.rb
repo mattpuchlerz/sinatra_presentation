@@ -1,18 +1,11 @@
-require 'rubygems'
-require 'spec/expectations'
-require 'webrat'
-require File.join( File.dirname(__FILE__), *%w[ . paths ] )
-require 'sinatra'
-
-
-
-# 
-# Sinatra configuration
-# 
-
-set :environment, :test
+ENV['RACK_ENV'] = 'test'
 
 require File.join( File.dirname(__FILE__), *%w[ .. .. app ] )
+
+require 'spec/expectations'
+
+require 'webrat'
+require File.join( File.dirname(__FILE__), *%w[ . paths ] )
 
 
 
