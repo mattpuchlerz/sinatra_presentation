@@ -6,7 +6,7 @@ class Game
   property :hits, Object
   
   def hits
-    @hits.to_a
+    attribute_get(:hits).to_a
   end
   
   def hits=(hits)    
