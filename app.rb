@@ -53,9 +53,6 @@ end
 # 
 
 DataMapper.setup :default, "sqlite3://#{ ROOT }/db/#{ Sinatra::Application.environment }.sqlite3"
-
-# Dir.glob("models/*.rb").each { |file| load file }
-
 DataMapper.auto_upgrade!
 
 
