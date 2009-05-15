@@ -1,17 +1,19 @@
 ENV['RACK_ENV'] = 'test'
 
+# Sinatra app
 require File.join( File.dirname(__FILE__), *%w[ .. .. app ] )
 
+# RSpec matchers
 require 'spec/expectations'
-
-require 'webrat'
-require File.join( File.dirname(__FILE__), *%w[ . paths ] )
 
 
 
 # 
 # Webrat configuration
 # 
+
+require 'webrat'
+require File.join( File.dirname(__FILE__), *%w[ . paths ] )
 
 Webrat.configure do |config|
   config.mode = :sinatra
