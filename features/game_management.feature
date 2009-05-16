@@ -23,6 +23,19 @@ Feature: Managing Games
     And I should see 4 "Edit" links
     And I should see 4 "Delete" buttons
     
+  Scenario: Accessing the show game page
+    Given the following games exist:
+      | hits                                             |
+      | 5,5, 1,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0 |
+    And I am on the games index page
+    When I follow "Show"
+    Then I should be on the show game page
+    And I should see "Game"
+    And I should see 1 "Back to Games" link
+    And I should see 1 "Edit Game" link
+    And I should see "5,5,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"
+    And I should see "12"
+  
   Scenario: Accessing the new game page
     Given I am on the games index page
     When I follow "New Game"
@@ -37,19 +50,6 @@ Feature: Managing Games
     Then I should be on the show game page
     And I should see "5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5"
     And I should see "150"
-  
-  Scenario: Accessing the show game page
-    Given the following games exist:
-      | hits                                             |
-      | 5,5, 1,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0 |
-    And I am on the games index page
-    When I follow "Show"
-    Then I should be on the show game page
-    And I should see "Game"
-    And I should see 1 "Back to Games" link
-    And I should see 1 "Edit Game" link
-    And I should see "5,5,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"
-    And I should see "12"
   
   Scenario: Accessing the game edit page
     Given the following games exist:
