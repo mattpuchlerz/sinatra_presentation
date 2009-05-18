@@ -6,6 +6,8 @@ Here you will find all the code and slides that were presented. Just a few thing
 - The code in the [**master branch**][master] is what we started the presentation with. It establishes the general directory structure of the app, all the Cucumber features and their associated step definitions, and RSpec specifications for a `Game` model. The main `app.rb` is present, but only contains a couple `require` statements and your standard "Hello World".
 - The code in the [**solution branch**][solution] is the finished `app.rb`. That's right, we've gone from "Hello World" to completed application in just one file!
 
+An [HD video of the presentation][vimeo] is available in several chunks on Vimeo. *Note that the video chunks will be uploaded incrementally over the next week or so.*
+
 Working with the Code
 =====================
 
@@ -53,6 +55,6 @@ You get the same error--awesome! Now go define a `Game` model class and run the 
 
 
 
-[master]:       http://github.com/mattpuchlerz/sinatra_presentation/tree/master
-[solution]:     http://github.com/mattpuchlerz/sinatra_presentation/tree/solution
-[sinatra-rest]: http://github.com/blindgaenger/sinatra-rest/
+[master]:   http://github.com/mattpuchlerz/sinatra_presentation/tree/master
+[solution]: http://github.com/mattpuchlerz/sinatra_presentation/tree/solution
+[vimeo]:    http://vimeo.com/album/93521
